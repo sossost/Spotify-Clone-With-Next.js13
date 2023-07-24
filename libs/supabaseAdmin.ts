@@ -102,6 +102,7 @@ const copyBillingDetailsToCustomer = async (
   if (!name || !phone || !address) return;
 
   // Stripe에 있는 해당 고객의 Billing Details를 업데이트
+  //@ts-ignore
   await stripe.customers.update(customer, { name, phone, address });
 
   // Supabase의 "users" 테이블에서 해당 고객의 Billing Details를 업데이트
